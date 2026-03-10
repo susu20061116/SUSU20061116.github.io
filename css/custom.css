@@ -1,0 +1,18 @@
+/* 引入霞鹜文楷字体 */
+@import url('https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css');
+
+/* 强制应用到全站 */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
+    font-family: "LXGW WenKai Screen", sans-serif !important;
+}
+/* 强行解除文章内部所有图片的高度和宽度封印 */
+.post-content img,
+.article-entry img,
+#article-container img,
+.markdown-body img {
+    display: block !important;
+    width: auto !important;  /* 👉 新增这句绝杀：强行无视 HTML 里的 width="46" 属性，恢复图片原生宽度！ */
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+}
