@@ -1,0 +1,959 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      无痛入门java反序列化 | Su@sU的世界
+    
+  </title>
+  <meta name="author" content="Su@sU">
+  <meta name="keywords" content="web 游戏" />
+  <meta name="description" content="一个什么都感兴趣的人的胡思乱想" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「无痛入门java反序列化」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2026/07/01/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" itemprop="url">
+		无痛入门java反序列化
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2026/07/01/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" itemprop="url">
+		<time datetime="2026-07-01T03:00:00.000Z" itemprop="dateUpdated">
+	  		2026-07-01
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>在学习URLDNS链以及之后的cc链之前 我们得先掌握java反序列化的基础知识 </p>
+<h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><p><strong>序列化</strong><br>把一个java对象转换成字节序列以便存储或者通过网络传输<br><strong>反序列化</strong><br>把字节序列还原成java对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">序列化：对象-&gt;字符串</span><br><span class="line">反序列化：字符串-&gt;对象</span><br></pre></td></tr></table></figure>
+
+<h3 id="为什么要进行序列化和反序列化"><a href="#为什么要进行序列化和反序列化" class="headerlink" title="为什么要进行序列化和反序列化"></a>为什么要进行序列化和反序列化</h3><ul>
+<li>保存对象状态：将对象存入磁盘&#x2F;缓存 以便之后恢复</li>
+<li>网络传输：客户端和服务端通信的时候 对象通过socket（套接字）传输</li>
+<li>对象复制&#x2F;传递：在不同模块之间传递对象需要序列化</li>
+</ul>
+<h2 id="JAVA函数（writeObject-readObject）实现序列化和反序列化"><a href="#JAVA函数（writeObject-readObject）实现序列化和反序列化" class="headerlink" title="JAVA函数（writeObject&#x2F;readObject）实现序列化和反序列化"></a>JAVA函数（writeObject&#x2F;readObject）实现序列化和反序列化</h2><p>通过下面一个例子就可以理解这两个函数在序列化和反序列化之中的利用<br>构造恶意类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package java_Serializable;  </span><br><span class="line">  </span><br><span class="line">import java.io.Serializable;  </span><br><span class="line">  </span><br><span class="line">public class User implements Serializable&#123;  //注意这个Serialiazble接口 这是序列化标志</span><br><span class="line">    private static final long serialVersionUID = 1L;  </span><br><span class="line">  </span><br><span class="line">    private String username;  </span><br><span class="line">    private int age;  </span><br><span class="line">  </span><br><span class="line">    public User(String username,int age)&#123;  </span><br><span class="line">        this.username = username;  </span><br><span class="line">        this.age = age;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    public String toString()&#123;  </span><br><span class="line">        return &quot;User&#123;name=&quot; +username + &quot;, age=&quot; + age + &quot;&#125;&quot;;  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造序列化类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package java_Serializable;  </span><br><span class="line">  </span><br><span class="line">import java.io.FileOutputStream;  </span><br><span class="line">import java.io.ObjectOutputStream;  </span><br><span class="line">  </span><br><span class="line">public class SerializeDemo &#123;  </span><br><span class="line">    public static void main(String[] args)throws  Exception&#123;  </span><br><span class="line">        User user=new User(&quot;admin&quot;,18);  </span><br><span class="line">  </span><br><span class="line">        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;user.obj&quot;));  </span><br><span class="line">        oos.writeObject(user);  </span><br><span class="line">        oos.close();  </span><br><span class="line">  </span><br><span class="line">        System.out.println(&quot;序列化成功 user.obj已生成&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造反序列化类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package java_Serializable;  </span><br><span class="line">  </span><br><span class="line">import java.io.FileInputStream;  </span><br><span class="line">import java.io.ObjectInputStream;  </span><br><span class="line">  </span><br><span class="line">public class UnSerializeDemo &#123;  </span><br><span class="line">    public static void main(String[] args)throws Exception&#123;  </span><br><span class="line">        ObjectInputStream ois=new ObjectInputStream(new FileInputStream(&quot;user.obj&quot;));  </span><br><span class="line">        Object obj=ois.readObject();  </span><br><span class="line">        ois.close();  </span><br><span class="line">  </span><br><span class="line">        System.out.println(&quot;反序列化成功&quot;);  </span><br><span class="line">        System.out.println(obj);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h3><p>接下来我们来解释一下导入的这几个包以及代码的运行逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.ObjectOutputStream;</span><br></pre></td></tr></table></figure>
+
+<p><code>java.io.FileOutputStream</code>:文件字节输出流 负责把数据写入到磁盘文件<br><code>java.io.ObjectOutputStream</code>:对象输出流 可以提供把java对象转换成字节流需要的框架 并配合前者写入文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.ObjectInputStream;</span><br></pre></td></tr></table></figure>
+<p><code>java.io.FileInputStream</code>:文件字节输入流 从磁盘文件读取字节数据<br><code>java,io,ObjectInputStream</code>:对象输入流 提供将java对象从字节流之中恢复的结构 配合前者使用</p>
+<p>重头戏就是这一段代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;user.obj&quot;));  </span><br><span class="line">oos.writeObject(user);  </span><br><span class="line">oos.close();</span><br></pre></td></tr></table></figure>
+<p><code>new FileOutputStream(&quot;user.obj&quot;)</code>这一段是建立一个和文件user.obj连接的字节流 类似C语言之中的fopen 将其嵌套于<code>new ObjectOutputStream</code>之中 此时这个字节流就可以传递java的序列化内容 但是此时就像开放了两国外交关系 也开放了商道 但是商品还没有生产出来<br>此时调用writeObject()将对象转换成序列化内容 就好比生产了商品 此时就可以贸易往来 也就是将这一段序列化内容传入user.obj之中<br>最后需要将这一段字节流关闭</p>
+<p>同样的道理 反序列化过程也是如此</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectInputStream ois=new ObjectInputStream(new FileInputStream(&quot;user.obj&quot;));  </span><br><span class="line">Object obj=ois.readObject();  </span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
+<p>此处不再过多解释<br>值得一提的是readObject的递归性 这也是后续cc链的核心基础：反序列化一个对象的时候 其引用的子对象也会被递归反序列化 并且每个子对象的readObject钩子都会被执行</p>
+<img src="/2026/07/01/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/good.png" class="" title="good">
+<h2 id="反序列化漏洞利用"><a href="#反序列化漏洞利用" class="headerlink" title="反序列化漏洞利用"></a>反序列化漏洞利用</h2><p>虽然我们前面学习了如何序列化和反序列化 但是实际上如果只是简单的再恶意代码之中加入我们想要执行的恶意代码是无法成功的<br>像这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class EvilObject implements Serializable &#123;</span><br><span class="line">    private String cmd;</span><br><span class="line">    public EvilObject(String cmd) &#123;</span><br><span class="line">        this.cmd = cmd;</span><br><span class="line">        Runtime.getRuntime().exec(cmd);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里的exec是无法执行的<br>这是因为<strong>反序列化不是重新执行构造的过程</strong><br>当你正常new一个对象的时候</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EvilObject obj = new EvilObject(&quot;calc&quot;);</span><br></pre></td></tr></table></figure>
+<p>JVM会执行构造方法 如果构造方法里面有exec 就会执行 整个逻辑大概像下面这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. JVM 在堆上分配内存空间</span><br><span class="line">2. 调用构造方法 EvilObject(String cmd)</span><br><span class="line">   └── 执行 this.cmd = cmd</span><br><span class="line">   └── 执行 Runtime.getRuntime().exec(cmd)  ← 这里会执行！</span><br><span class="line">3. 返回对象引用</span><br></pre></td></tr></table></figure>
+
+
+<p>但是反序列化完全绕过构造方法 直接通过JVM内部的底层机制分配一块内存 然后把从字节流之中读出的字段值粘贴到这块内存的对应位置上 写成一个对象 整个过程没有任何java层面的方法被主动调用 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = ois.readObject();</span><br></pre></td></tr></table></figure>
+<p>整个运行逻辑大概是这样的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. JVM 从字节流中读取类描述信息（类名 字段名 字段值等）</span><br><span class="line">2. JVM 在堆上分配内存空间（注意此时还没有调用任何构造方法）</span><br><span class="line">3. JVM 通过反射，直接从字节流中读取字段值，写入内存中的对应位置</span><br><span class="line">   └── 相当于：field.set(obj, valueFromStream)</span><br><span class="line">4. JVM 检查该类是否定义了 private void readObject(ObjectInputStream) 方法</span><br><span class="line">   ├── 如果有：反射调用它</span><br><span class="line">   └── 如果没有：什么都不做 直接返回</span><br><span class="line">5. 返回对象引用</span><br></pre></td></tr></table></figure>
+<p>所以上面我们写的哪个恶意类如果直接反序列化 其中的恶意代码根本不会被执行</p>
+<p><strong>那么我们应该通过反序列化执行我们的恶意代码呢</strong><br>我们来看以下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package java_Serializable;  </span><br><span class="line">  </span><br><span class="line">import java.io.IOException;  </span><br><span class="line">import java.io.ObjectInputStream;  </span><br><span class="line">import java.io.ObjectOutputStream;  </span><br><span class="line">import java.io.Serializable;  </span><br><span class="line">  </span><br><span class="line">public class EvilObject implements Serializable &#123;  </span><br><span class="line">    private static final long serialVersionUID = 1L;  </span><br><span class="line">  </span><br><span class="line">    private String cmd;  </span><br><span class="line">  </span><br><span class="line">    public EvilObject(String cmd) &#123;  </span><br><span class="line">        this.cmd = cmd;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    // 重写readObject，反序列化时自动执行  </span><br><span class="line">    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException &#123;  </span><br><span class="line">        in.defaultReadObject();  // 让反序列化按照默认方法执行读取</span><br><span class="line">        Runtime.getRuntime().exec(cmd);  // 此处就有潜在RCE风险  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在java之中为了满足一些需求（字段验证等）提供了一个“钩子” ：如果类中定义了 <code>private void readObject(ObjectInputStream in)</code> 那么在反序列化恢复字段值之后&#x2F;之前 就会调用这个钩子 这就是我们说的重写readObject</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException</span><br></pre></td></tr></table></figure>
+<p>当你重写的时候 在反序列化类之中再次调用readObject的时候</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ObjectInputStream ois = new ObjectInputStream(...);</span><br><span class="line">Object obj = ois.readObject();   // 假设 obj 的实际类型是 EvilObject</span><br></pre></td></tr></table></figure>
+<p>代码的执行逻辑是</p>
+<ol>
+<li>从输入流之中读取一个类的描述信息</li>
+<li>确认当前JVM之中是否存在这个类 不存在就尝试加载</li>
+<li>通过反射检查这个类是否定义了一个名未<code>readObject</code>参数未<code>ObjectInputStream</code>修饰符未<code>private</code>的方法</li>
+<li>找到之后 框架会在恢复完字段值之后 反射调用这个方法</li>
+<li>未找到 只执行默认的字段恢复逻辑 不调用任何额外方法</li>
+</ol>
+<p>所以</p>
+<ul>
+<li><p><strong>没有重写</strong> &#x3D; 框架执行默认行为（只恢复字段）。</p>
+</li>
+<li><p><strong>重写了</strong> &#x3D; 框架执行默认行为 + <strong>额外调用你写的 <code>readObject</code> 方法</strong>（因为你给了它一个明确的钩子）</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void writeObject(java.io.ObjectOutputStream out) throws IOException &#123;</span><br><span class="line">    // 自定义序列化逻辑</span><br><span class="line">    out.defaultWriteObject();  // 可选，先执行默认序列化</span><br><span class="line">    // 然后做点别的事...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">    // 自定义反序列化逻辑</span><br><span class="line">    in.defaultReadObject();   // 可选，先执行默认反序列化</span><br><span class="line">    // 然后做点别的事...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="defaultReadObject-defaultWriteObject讲解"><a href="#defaultReadObject-defaultWriteObject讲解" class="headerlink" title="defaultReadObject&#x2F;defaultWriteObject讲解"></a>defaultReadObject&#x2F;defaultWriteObject讲解</h3><p>在这里我们还要说明一下这两个函数<br>我们前文之中说到 这两个方法是让JVM以默认的方式将对象存储成字节流或从字节流之中恢复对象 就以我们重写的readObject举例子吧</p>
+<p>假设我们不写这个defaultReadObject</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException &#123;  </span><br><span class="line">    Runtime.getRuntime().exec(cmd);  // 此处就有潜在RCE风险  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p>那么此时的cmd指尚未被恢复 还是字节流 根本没有实际的值让我们将其作为参数执行exec  于是就导致了出错 让AI生成了一个流程图大概就是这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. JVM 分配内存（对象诞生，此时 cmd = null）</span><br><span class="line">2. JVM 反射调用你写的 readObject(ObjectInputStream in)  ← 你进入方法了！</span><br><span class="line">   |-- 此时，cmd 仍然为 null</span><br><span class="line">   |-- [关键点] 如果你现在直接执行 Runtime.getRuntime().exec(cmd)，会报错（空指针）</span><br><span class="line">   |</span><br><span class="line">   |-- 执行 in.defaultReadObject();  ← 这一行代码执行完，JVM 才从流里读出数据，赋给 cmd</span><br><span class="line">   |   (此时 cmd 才变成流里保存的 &quot;calc.exe&quot;)</span><br><span class="line">   |</span><br><span class="line">   |-- 执行 Runtime.getRuntime().exec(cmd);  ← 此时 cmd 有值了，成功执行！</span><br><span class="line">3. 方法结束，返回对象</span><br></pre></td></tr></table></figure>
+<p>在开发者的设计初衷之中 这个方法是用于数据校验和迁移的 比如说下列场景</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private void readObject(ObjectInputStream in) throws ... &#123;</span><br><span class="line">    in.defaultReadObject(); </span><br><span class="line">    //数据恢复后进行校验 如果年龄是负数 强行改成 18</span><br><span class="line">    if (this.age &lt; 0) &#123; this.age = 18; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是在我们的恶意攻击之中 就可以被我们用来恢复字段</p>
+<p>那么现在对于这些知识都了解的差不多了 可以尝试攻击<br>我们将序列化类改成以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package java_Serializable;</span><br><span class="line"></span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.ObjectOutputStream;</span><br><span class="line"></span><br><span class="line">public class SerializeDemo &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        // 改为创建 EvilObject</span><br><span class="line">        EvilObject evil = new EvilObject(&quot;calc.exe&quot;);  // Windows 弹计算器</span><br><span class="line">        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;evil.obj&quot;));</span><br><span class="line">        oos.writeObject(evil);</span><br><span class="line">        oos.close();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;序列化成功 evil.obj 生成&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后修改一下反序列化类 不用大改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package java_Serializable;  </span><br><span class="line">  </span><br><span class="line">import java.io.FileInputStream;  </span><br><span class="line">import java.io.ObjectInputStream;  </span><br><span class="line">  </span><br><span class="line">public class UnSerializeDemo &#123;  </span><br><span class="line">    public static void main(String[] args) throws Exception &#123;  </span><br><span class="line">        // 文件名改成 evil.obj        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(&quot;evil.obj&quot;));  </span><br><span class="line">        Object obj = ois.readObject();  </span><br><span class="line">        ois.close();  </span><br><span class="line">  </span><br><span class="line">        System.out.println(&quot;反序列化成功&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行二者之后成功弹出计算器<img src="/2026/07/01/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/bad.png" class="" title="bad"></p>
+<h3 id="补充知识点：transient"><a href="#补充知识点：transient" class="headerlink" title="补充知识点：transient"></a>补充知识点：transient</h3><p>这里还需要补充一个知识点就是如果一个类的某个字段不想被序列化 可以使用transient修饰 反序列化之后该字段改为默认值（null，0，false）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private transient String password;</span><br></pre></td></tr></table></figure>
+<p>这个修饰符的设计初衷就是为了保护一些敏感信息<br>然而在攻击者的视角之中 这个修饰符只能保护JVM默认的序列化行为 却无法影响重写的writeObject&#x2F;readObject</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class SecureData implements Serializable &#123;</span><br><span class="line">    private String data;</span><br><span class="line">    private transient String encryptedData;  // 不会自动序列化</span><br><span class="line"></span><br><span class="line">    // 我们可以手动写入加密后的数据</span><br><span class="line">    private void writeObject(ObjectOutputStream out) throws IOException &#123;</span><br><span class="line">        out.defaultWriteObject();  // 正常写入 data</span><br><span class="line">        // 手动把加密后的数据写入流</span><br><span class="line">        String encrypted = encrypt(data);</span><br><span class="line">        out.writeUTF(encrypted);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 手动读取并解密</span><br><span class="line">    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">        in.defaultReadObject();   // 正常恢复 data</span><br><span class="line">        // 手动读取加密数据并解密</span><br><span class="line">        String encrypted = in.readUTF();</span><br><span class="line">        this.encryptedData = decrypt(encrypted);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是由于transient字段不会被自动序列化 所以攻击者无法直接控制transient字段的值 所以构造反序列化利用链的时候 攻击者会优先瞄准非transient字段攻击</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>至此我们已经初步掌握了java反序列化的一些基本知识 核心性质有这些</p>
+<ul>
+<li>一个类必须实现<code>java.io.Serializable</code>标识接口 对象才能被序列化</li>
+<li>必须重写readObject方法才能植入恶意攻击<br>还学习了一些细碎的知识点 比如transient可以阻止默认序列化<br>我都下一篇文章将讲解URLDNS链 这是一个初步实际掌握java反序列化的好链子 也能帮助我们更好的理解后续的cc链 敬请期待</li>
+</ul>
+<p><strong>参考文章</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_63350467/article/details/140423100">Java反序列化漏洞详解（易懂）-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://xz.aliyun.com/news/1744">Java反序列化漏洞从入门到深入-先知社区</a></li>
+</ul>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/images/covers/xiangyu.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2026/07/01/URLDNS%E9%93%BE/" title="URLDNS链入门" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2026/06/30/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" title="用租房视角学习动态代理" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/07/01/URLDNS%E9%93%BE/" title="URLDNS链入门">
+								URLDNS链入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 1日, 2026				
+							</p>
+							<p class="relate-post-content">
+								在一些测试环境之中 目标是否发生反序列化是无回显的 是否有一种办法能够测试目标是否能够发生反序列化呢？有的兄弟有的如果我们能让目标服务器通过反序列化发起一次DNS解析请求 那么在接收到请求的时候不就知道了吗那么这就是我们需要学习的UR...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/07/01/URLDNS%E9%93%BE/" title="URLDNS链入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/lonelydog.jpg" alt="URLDNS链入门"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/30/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" title="用租房视角学习动态代理">
+								用租房视角学习动态代理			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 30日, 2026				
+							</p>
+							<p class="relate-post-content">
+								关于这一部分的知识点 我们先从静态代理说起
+静态代理什么是代理？ 代理就是：不操作目标对象而是通过一个中间人（代理）来间接操作最常见的现实例子就是租房问题：你要租房子 不需要直接找到房东 而是通过租房中介 中介帮你去和房东沟通  那么...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/30/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" title="用租房视角学习动态代理">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/dali.jpg" alt="用租房视角学习动态代理"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/30/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制漫谈">
+								类加载机制漫谈			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 30日, 2026				
+							</p>
+							<p class="relate-post-content">
+								解释java字节码为什么需要编译成class文件我们首先要理解JVMjava是是一种混合型语言有编译的步骤也有解释步骤我们编写的java文件需要被编译成class文件之后才能被JVM运行
+什么是class文件传统编译型语言（C C++...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/30/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制漫谈">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/yulong.jpg" alt="类加载机制漫谈"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/" title="动态加载字节码">
+								动态加载字节码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 30日, 2026				
+							</p>
+							<p class="relate-post-content">
+								动态加载字节码是一种让JVM可以接收由程序在运行时动态产生的字节数组并将其装在的能力 本义是让程序变得更加灵活 但是也产生了一定的安全问题
+核心方法在java.lang.ClassLoader类中有一个方法
+1protected fi...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/30/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%AD%97%E8%8A%82%E7%A0%81/" title="动态加载字节码">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/huqiu.jpg" alt="动态加载字节码"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/29/%E5%8F%8D%E5%B0%84/" title="反射随笔">
+								反射随笔			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 29日, 2026				
+							</p>
+							<p class="relate-post-content">
+								反射概念在java之中 万物都是对象 包括“类本身也是一个对象”（属于java.lang.Class类的对象）
+反射的本质就是在程序运行期间 通过操控这个Class对象 反向解析和操控它所代表的哪个类里面的内容（构造器，属性，方法）
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/29/%E5%8F%8D%E5%B0%84/" title="反射随笔">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/xuanwuhu.jpg" alt="反射随笔"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/06/21/LangChain%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="LangChain反序列化">
+								LangChain反序列化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 21日, 2026				
+							</p>
+							<p class="relate-post-content">
+								最近在打SCTF的时候遇到一个LangChain反序列化的题目  比较新颖 于是想着学习一下
+LangChain介绍LangChain是一个用于构建大语言模型应用的开源框架 通过这个可以把常用的组件抽象成可串联的链（Chain）举个例...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/06/21/LangChain%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="LangChain反序列化">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/pingjianglu.jpg" alt="LangChain反序列化"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/04/19/filter-chain%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="filter-chain漏洞演示">
+								filter-chain漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 19日, 2026				
+							</p>
+							<p class="relate-post-content">
+								这个漏洞链被称为CNEXT 由安全员Charles Fol披露
+核心思想是利用系统内置的看似无害的模块（流过滤器）的巧妙组合 在受限的web环境之中执行命令
+原理讲解filter协议对于filter伪协议 我们肯定都不陌生这个伪协议允...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/04/19/filter-chain%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="filter-chain漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/daliyuese.jpg" alt="filter-chain漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过">
+								死亡绕过			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 19日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前言以及环境介绍本文是对p神文章谈一谈php:&#x2F;&#x2F;filter的妙用 | 离别歌知识点的学习
+本文主要介绍使用filter伪协议进行死亡绕过的三种方式
+测试环境：小皮面板测试代码：exit.php
+12345&lt...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/04/19/%E6%AD%BB%E4%BA%A1%E7%BB%95%E8%BF%87/" title="死亡绕过">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/shanghai.jpg" alt="死亡绕过"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/13/Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="Phar反序列化漏洞演示">
+								Phar反序列化漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2026				
+							</p>
+							<p class="relate-post-content">
+								前言我们在之前学习的反序列化漏洞 无一不是利用了unserialize()这个函数 但是我们没有去考虑 假设此时的题目并没有给我们这个函数 我们还能否实现反序列化呢
+其实是可以的 在2018年的BlackHat 大会上 Sam Tho...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/13/Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="Phar反序列化漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/erhaibian.jpg" alt="Phar反序列化漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2026/03/12/pearcmd%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="pearcmd漏洞演示">
+								pearcmd漏洞演示			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 12日, 2026				
+							</p>
+							<p class="relate-post-content">
+								1register_argc_argv性质这是PHP中的一个配置项 用于决定是否在脚本中声明_$argc_ 和 _$argv_ 变量这两个变量在命令行模式下是十分重要的
+
+$argc：表示传递给脚本的参数数量
+$argv:这是一个数组...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2026/03/12/pearcmd%E6%BC%8F%E6%B4%9E%E6%BC%94%E7%A4%BA/" title="pearcmd漏洞演示">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/covers/huchenghe.jpg" alt="pearcmd漏洞演示"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2025 - 2026, content by Su@sU. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.xml',
+		zip_Path = '/',
+		version_Path = '/',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
